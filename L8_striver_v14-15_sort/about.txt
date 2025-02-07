@@ -1,0 +1,399 @@
+<--- SELECTION SORT --->
+
+>> Complexity Analysis
+    1.Time Complexity:
+            Outer Loop: Runs N-1 times.
+            Inner Loop: Iterates over [i+1…N-1] for each i.
+            Total iterations ≈ N + (N-1) + (N-2) + … + 1 = O(N^2).
+            Best/Worst/Average Case: O(N^2)
+
+    2.Space Complexity:
+            Uses no extra space, so O(1)
+
+>> Problem Statement
+
+    Sort an array of N integers using the Selection Sort algorithm.
+    Example:
+        Input: array[] = {13, 46, 24, 52, 20, 9}
+        Output: 9, 13, 20, 24, 46, 52
+
+>> Approach
+    1.Outer Loop (Range Selection):
+        Use an outer loop to define the unsorted range starting from index i.
+        The loop runs from 0 to N-1.
+
+    2.Inner Loop (Find Minimum):
+        For each i, use an inner loop to find the minimum element in the range [i…N-1].
+
+    3.Swap Minimum:
+        Swap the minimum element with the first element of the current range.
+
+    4.Increment Range:
+        After each iteration, the starting index i increases by 1, and the sorted portion grows.
+
+>> Dry Run Example
+
+        Input: array[] = {7, 5, 9, 2, 8}
+
+    1.Iteration 1 (Range: [0…4]):
+        Find the minimum element (2).
+        Swap 2 with the first element (7).
+        Array after swap: {2, 5, 9, 7, 8}
+
+    2.Iteration 2 (Range: [1…4]):
+        Find the minimum element (5).
+        Swap 5 with itself (no change).
+        Array after swap: {2, 5, 9, 7, 8}
+
+    3.Iteration 3 (Range: [2…4]):
+        Find the minimum element (7).
+        Swap 7 with 9.
+        Array after swap: {2, 5, 7, 9, 8}
+
+    4.Iteration 4 (Range: [3…4]):
+        Find the minimum element (8).
+        Swap 8 with 9.
+        Array after swap: {2, 5, 7, 8, 9}
+
+
+
+
+
+
+
+
+
+
+
+
+<--- BUBBLE SORT ALGORITHM --->
+
+>> Complexity Analysis
+
+    1.Time Complexity:
+        Outer Loop: Runs n−1n−1 times.
+        Inner Loop: Runs from 00 to i−1i−1 for each iteration of the outer loop.
+        Total steps ≈ (n−1)+(n−2)+…+1(n−1)+(n−2)+…+1 = O(n2)O(n2).
+        Best Case: O(n2)O(n2) (no optimization to skip passes if the array is already sorted).
+        Worst Case: O(n2)O(n2).
+
+    2.Space Complexity:
+        Uses no extra space, so O(1)O(1).
+
+>> Problem Statement
+
+    Sort an array of N integers using the Bubble Sort algorithm.
+    Example:
+        Input: array[] = {13, 46, 24, 52, 20, 9}
+        Output: 9, 13, 20, 24, 46, 52
+
+>> Approach
+
+    1.Outer Loop (Range Selection):
+        Use an outer loop to select the unsorted range of the array.
+        The loop runs backward from n-1 to 0 (i.e., i decreases from n-1 to 0).
+        At iteration i, the range is [0…i].
+
+    2.Inner Loop (Push Maximum):
+        For each range [0…i], use an inner loop to compare and swap adjacent elements.
+        If arr[j] > arr[j+1], swap them to ensure the larger element is pushed to the end of the range.
+
+    3.Progressive Sorting:
+        After each iteration of the outer loop, the largest element in the current range is moved to the correct position in the sorted section of the array.
+
+    4.Repeat Until Sorted:
+        Repeat the process for (n-1) iterations to ensure all elements are sorted.
+
+>> Dry Run Example
+
+    Input: array[] = {13, 46, 24, 52, 20, 9}
+
+    1.Iteration 1 (Range: [0…5]):
+        Compare and swap adjacent elements:
+            Swap 46 and 24, 52 and 20, and 52 and 9.
+        Array after iteration: {13, 24, 46, 20, 9, 52}
+
+    2.Iteration 2 (Range: [0…4]):
+        Compare and swap adjacent elements:
+            Swap 46 and 20, and 46 and 9.
+        Array after iteration: {13, 24, 20, 9, 46, 52}
+
+    3.Iteration 3 (Range: [0…3]):
+        Compare and swap adjacent elements:
+            Swap 24 and 20, and 24 and 9.
+        Array after iteration: {13, 20, 9, 24, 46, 52}
+
+    4.Iteration 4 (Range: [0…2]):
+        Compare and swap adjacent elements:
+            Swap 20 and 9.
+        Array after iteration: {13, 9, 20, 24, 46, 52}
+
+    5.Iteration 5 (Range: [0…1]):
+        Swap 13 and 9.
+        Array after iteration: {9, 13, 20, 24, 46, 52}
+
+
+
+
+
+
+
+
+
+
+
+
+
+<--- INSERTION SORT ALGORITHM --->
+
+Problem Statement
+Sort an array of N integers using the Insertion Sort algorithm.
+Examples
+
+Example 1:
+
+    Input: N = 6, array[] = {13, 46, 24, 52, 20, 9}
+    Output: 9, 13, 20, 24, 46, 52
+
+Example 2:
+
+    Input: N = 5, array[] = {5, 4, 3, 2, 1}
+    Output: 1, 2, 3, 4, 5
+
+>> Approach
+
+    Outer Loop:
+        Iterate through the array starting from index 1 to N-1.
+        Assume the first element (index 0) is already sorted.
+
+    Inner Loop:
+        For each element, compare it with the sorted portion of the array (elements to its left).
+        Shift elements in the sorted part to the right until the correct position for the current element is found.
+
+    Insert Element:
+        Insert the current element into its correct position in the sorted part.
+
+>> Dry Run Example
+
+            Input: array[] = {13, 46, 24, 52, 20, 9}
+
+    Iteration 1 (i = 0, current element = 13)
+        nothing on the left to compare with.
+        No change.
+
+    Iteration 2 (i = 1, current element = 46)
+        Compare 46 with 13 (sorted part).
+        46 > 13, no changes needed.
+        Array: {13, 46, 24, 52, 20, 9}
+
+    Iteration 3: (i = 2, current element = 24)
+        Compare 24 with 46. Swap (24 < 46).
+        Compare 24 with 13. Stop (24 > 13).
+        Array: {13, 24, 46, 52, 20, 9}
+
+    Iteration 4: (i = 3, current element = 52)
+        Compare 52 with 46. No changes needed.
+        Array: {13, 24, 46, 52, 20, 9}
+
+    Iteration 5: (i = 4, current element = 20)
+        Compare 20 with 52. Swap.
+        Compare 20 with 46. Swap.
+        Compare 20 with 24. Swap.
+        Compare 20 with 13. Stop (20 > 13).
+        Array: {13, 20, 24, 46, 52, 9}
+
+    Iteration 6: (i = 5, current element = 9)
+        Compare 9 with 52, 46, 24, 20, and 13. Swap each time.
+        Array: {9, 13, 20, 24, 46, 52}
+
+>>Complexity Analysis
+
+    Time Complexity:
+        Worst Case: O(N^2)
+            When the array is sorted in reverse order.
+            Each element has to shift all previous elements.
+
+        Best Case: O(N)
+            When the array is already sorted.
+            No shifting is needed; the inner loop runs 0 times for each iteration.
+        
+        Average Case: O(N^2).
+
+    Space Complexity: O(1).
+        In-place sorting requires no additional space.
+
+
+
+
+
+
+
+
+
+
+<--- MERGE SORT ALGORITHM --->
+Problem Statement
+
+    Sort an array of size N using Merge Sort.
+    Example:
+        Input: arr[] = {4,2,1,6,7}
+        Output: 1,2,4,6,7
+
+Intuition
+
+    Merge Sort follows the Divide and Conquer strategy.
+    The array is divided into two equal halves until each sub-array contains only one element.
+    Then, the sorted sub-arrays are merged back together.
+
+Main Functions
+
+    mergeSort(arr, low, high)
+        Recursively splits the array into two halves:
+            Left Half: low to mid
+            Right Half: mid+1 to high
+        Base case: If low >= high, return (single element or empty array).
+    merge(arr, low, mid, high)
+        Merges two sorted halves of the array.
+        Uses a temporary array to store the merged elements in sorted order.
+        Copies elements back to the original array.
+
+Algorithm Steps
+
+    Divide the array into two halves:
+        Compute the mid index:
+        mid=low+high2
+        mid=2low+high​
+        Recursively apply mergeSort() to both halves.
+
+    Merge the sorted halves:
+        Compare elements from both halves.
+        Store the smaller element in a temporary array.
+        Copy remaining elements from both halves (if any).
+        Transfer sorted elements back to the original array.
+
+Dry Run Example
+
+Input: arr[] = {9, 4, 7, 6, 3, 1, 5}
+
+    Divide Phase (Recursive Calls):
+
+mergeSort(arr, 0, 6) → mid = 3
+  mergeSort(arr, 0, 3) → mid = 1
+    mergeSort(arr, 0, 1) → mid = 0
+      mergeSort(arr, 0, 0)  // Base Case
+      mergeSort(arr, 1, 1)  // Base Case
+    merge(arr, 0, 0, 1) → {4, 9}
+  mergeSort(arr, 2, 3) → mid = 2
+    mergeSort(arr, 2, 2)  // Base Case
+    mergeSort(arr, 3, 3)  // Base Case
+  merge(arr, 2, 2, 3) → {6, 7}
+merge(arr, 0, 1, 3) → {4, 6, 7, 9}
+
+Merge Phase (Rebuilding the Sorted Array):
+
+    mergeSort(arr, 4, 6) → mid = 5
+      mergeSort(arr, 4, 5) → mid = 4
+        mergeSort(arr, 4, 4)  // Base Case
+        mergeSort(arr, 5, 5)  // Base Case
+      merge(arr, 4, 4, 5) → {1, 3}
+      mergeSort(arr, 6, 6)  // Base Case
+    merge(arr, 4, 5, 6) → {1, 3, 5}
+    merge(arr, 0, 3, 6) → {1, 3, 4, 5, 6, 7, 9}
+
+    Final Sorted Array: {1, 3, 4, 5, 6, 7, 9}
+
+Algorithm Code
+
+#include <bits/stdc++.h>
+using namespace std;
+
+void merge(vector<int> &arr, int low, int mid, int high) {
+    vector<int> temp; // Temporary array
+    int left = low, right = mid + 1;
+
+    // Merge both halves into the temp array
+    while (left <= mid && right <= high) {
+        if (arr[left] <= arr[right]) {
+            temp.push_back(arr[left]);
+            left++;
+        } else {
+            temp.push_back(arr[right]);
+            right++;
+        }
+    }
+
+    // Copy remaining elements from the left half
+    while (left <= mid) {
+        temp.push_back(arr[left]);
+        left++;
+    }
+
+    // Copy remaining elements from the right half
+    while (right <= high) {
+        temp.push_back(arr[right]);
+        right++;
+    }
+
+    // Copy sorted elements back to the original array
+    for (int i = low; i <= high; i++) {
+        arr[i] = temp[i - low];
+    }
+}
+
+void mergeSort(vector<int> &arr, int low, int high) {
+    if (low >= high) return; // Base case
+    int mid = (low + high) / 2;
+    mergeSort(arr, low, mid);   // Sort left half
+    mergeSort(arr, mid + 1, high); // Sort right half
+    merge(arr, low, mid, high); // Merge sorted halves
+}
+
+int main() {
+    vector<int> arr = {9, 4, 7, 6, 3, 1, 5};
+    int n = arr.size();
+
+    cout << "Before Sorting: ";
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    cout << endl;
+
+    mergeSort(arr, 0, n - 1);
+
+    cout << "After Sorting: ";
+    for (int i = 0; i < n; i++) cout << arr[i] << " ";
+    cout << endl;
+
+    return 0;
+}
+
+Complexity Analysis
+
+    Time Complexity:
+        Each recursion splits the array into two halves → O(log N) levels.
+        The merge() function combines two halves in O(N) time.
+        Total Time Complexity:
+        O(Nlog⁡N)
+        O(NlogN)
+        Best, Worst, and Average Case: O(N log N)
+
+    Space Complexity:
+        Uses an auxiliary array for merging → O(N)
+        Not in-place, requires additional memory.
+
+Key Features
+
+    Efficient: Works well for large datasets due to O(N log N) complexity.
+    Stable Sort: Maintains the order of equal elements.
+    Not In-Place: Uses extra space for merging.
+    Useful for External Sorting: Works well for sorting large files.
+
+Comparison with Other Sorting Algorithms
+Algorithm	    Best Case	Worst Case	Average Case	Space Complexity	Stable?
+Merge Sort	    O(N log N)	O(N log N)	O(N log N)	        O(N)	        ✅ Yes
+Quick Sort	    O(N log N)	O(N²)	    O(N log N)	        O(log N)	    ❌ No
+Selection Sort	O(N²)	    O(N²)	    O(N²)	            O(1)	        ❌ No
+Bubble Sort	    O(N)	    O(N²)	    O(N²)	            O(1)	        ✅ Yes
+
+Conclusion:
+    Merge Sort is one of the most efficient sorting algorithms for large datasets.
+    Always guarantees O(N log N) time, making it better than selection and bubble sort.
+    Extra space usage (O(N)) is a drawback, but its stability makes it useful for linked lists and large data processing.
