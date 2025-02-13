@@ -1,7 +1,7 @@
 #SECOND LARGEST ELEMENT
 
 Problem Statement: Given an array, find the second smallest and second largest element in the array.
-                    Print ‘-1’ in the event that either of them doesn’t exist.
+                   Print ‘-1’ in the event that either of them doesn’t exist.
 
     Input : [1,2,4,7,7,5]
     Output : Second Smallest : 2
@@ -19,4 +19,33 @@ Problem Statement: Given an array, find the second smallest and second largest e
 
 --> Better Approach
         Approach:
-            1.
+            1.Find the smallest and largest element in the array in a single traversal.
+            2. Again traverse the array and find an element that is just greater than the smallest element, (second_Smallest) we found in step 1.
+            3. Similarly, find the largest element which is just smaller than the largest element, (second_Largest) we found in step 1.
+            4. We found the second smallest and second largest element.
+
+        Complexity Analysis:
+            Time Complexity : O(N) - For traversing the array twice.
+            Space Complexity: O(1)
+
+--> Optimal Approach
+        Four variables needed to store the smallest, second smallest, largest, and second largest element.
+        small, second_small => INT_MAX (Initialize with maximum value because we need to find the smallest element)
+        large, second_large => INT_MIN (Initialize with minimum value because we need to find the largest element)
+
+        Approach:
+            Second Smallest Algorithm:
+                1. If the current element is smaller than the 'small' element, then update the 'second_small' element with the 'small' element.
+                2. Else if the current element is smaller than the 'second_small' element, then update the 'second_small' element with the current element.
+                3. Once we traverse the array, the 'second_small' element will be the second smallest element.
+                4. If the 'second_small' element is still INT_MAX, then print -1.
+
+            Second Largest Algorithm:
+                1. If the current element is greater than the 'large' element, then update the 'second_large' element with the 'large' element.
+                2. Else if the current element is greater than the 'second_large' element, then update the 'second_large' element with the current element.
+                3. Once we traverse the array, the 'second_large' element will be the second largest element.
+                4. If the 'second_large' element is still INT_MIN, then print -1.
+
+        Complexity Analysis:
+            Time Complexity : O(N) - For traversing the array once.
+            Space Complexity: O(1)

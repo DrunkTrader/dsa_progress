@@ -2,8 +2,10 @@
 using namespace std;
 
 void getElements(int arr[], int n){
-    if(n==0 || n == 1)
+    if(n == 0 || n == 1) {
         cout << -1 << " " << -1 << endl;        //Base Case
+        return;
+    }
     sort(arr, arr+n);
     int secondSmall = arr[1];
     int secondLarge = arr[n-2];
