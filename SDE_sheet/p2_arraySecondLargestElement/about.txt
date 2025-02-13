@@ -1,0 +1,22 @@
+#SECOND LARGEST ELEMENT
+
+Problem Statement: Given an array, find the second smallest and second largest element in the array.
+                    Print ‘-1’ in the event that either of them doesn’t exist.
+
+    Input : [1,2,4,7,7,5]
+    Output : Second Smallest : 2
+             Second largest  : 5
+
+--> Brute Force Approach
+        Approach:
+            1. Sort the array in ascending order.
+            2. The element present at the second index is the second smallest element.
+            3. The element present at the second index from the end is the second largest element.
+
+        Complexity Analysis:
+            Time Complexity : O(NlogN) - For sorting the array
+            Space Complexity: O(1)
+
+--> Better Approach
+        Approach:
+            1.
