@@ -35,14 +35,15 @@ int secondLargest(int arr[], int n){
 }
 
 int main(){
-    //base case 
-    int arr1[] = {1,4,5,2,1,6,3,51,2,6,7};
+    int arr1[] = {1};
     int size = sizeof(arr1)/sizeof(arr1[0]);
-    if (size == 0 || size == 1){
+    if (size == 0 || size == 1){                    //base case
         cout << -1 << " "<< -1 << endl;
+        return -1;
     }
-    cout << arr1 << endl;
+
     cout << "second smallest : " << secondSmallest(arr1, size) << endl;
     cout << "second largest : " << secondLargest(arr1, size) << endl;
     return 0;
 }
+
