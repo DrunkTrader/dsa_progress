@@ -1,0 +1,9 @@
+For my System :
+del /S /Q "D:\DSA\*.exe"
+
+
+Syntax: del /S /Q "D:\path\to\folder\*.exe"
+
+- /S: Delete files from all subfolders
+- /Q: Quiet mode, do not ask if ok to delete on global wildcard
+- "C:\path\to\folder\*.exe": Delete all files with .exe extension in the folder and all subfolders
