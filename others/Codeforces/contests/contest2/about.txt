@@ -1,0 +1,14 @@
+/**
+ * @brief Calculates the minimum number of moves required to transform the given binary string `s` into a string `t` 
+ *        such that all characters in `t` are the same.
+ * 
+ * The function considers the following cases:
+ * 1. If the string `s` contains only '0's, no moves are needed.
+ * 2. If the string `s` contains only '1's, one move is needed to transfer all to `t`.
+ * 3. Otherwise, it counts the number of transitions between '0' and '1' in the string `s`.
+ * 4. If the first character of `s` is '1' and there are more than one transition, one additional move is needed.
+ * 
+ * @param n The length of the string `s`.
+ * @param s The binary string for which the minimum number of moves is to be calculated.
+ * @return int The minimum number of moves required.
+ */
