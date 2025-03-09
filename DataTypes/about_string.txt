@@ -1,0 +1,246 @@
+1. String Initialization
+
+    string s;
+    Declare an empty string.
+
+    string s = "Hello";
+    Initialize a string with a value.
+
+    string s(n, 'x');
+    Initialize a string with n copies of character 'x'.
+
+2. String Concatenation
+
+    s1 + s2
+    Concatenate two strings.
+
+    s1.append(s2)
+    Append s2 to s1.
+
+    s1 += s2
+    Append s2 to s1 (shorthand for append).
+
+3. Accessing Characters
+
+    s[index]
+    Access character at index.
+
+    s.at(index)
+    Access character at index (with bounds checking).
+
+    s.front()
+    Access the first character.
+
+    s.back()
+    Access the last character.
+
+4. String Length
+
+    s.length()
+    Get the length of the string.
+
+    s.size()
+    Get the length of the string (same as length()).
+
+    s.empty()
+    Check if the string is empty.
+
+5. Substring
+
+    s.substr(start, length)
+    Extract a substring starting at start with length characters.
+
+6. Finding in String
+
+    s.find(substring)
+    Find the first occurrence of substring in s.
+
+    s.rfind(substring)
+    Find the last occurrence of substring in s.
+
+    s.find_first_of(chars)
+    Find the first occurrence of any character in chars.
+
+    s.find_last_of(chars)
+    Find the last occurrence of any character in chars.
+
+7. Replacing in String
+
+    s.replace(start, length, new_string)
+    Replace length characters starting at start with new_string.
+
+8. Inserting into String
+
+    s.insert(index, new_string)
+    Insert new_string at index.
+
+9. Erasing from String
+
+    s.erase(start, length)
+    Erase length characters starting at start.
+
+    s.erase(iterator)
+    Erase a single character at the iterator position.
+
+    s.erase(iterator_start, iterator_end)
+    Erase characters between two iterators.
+
+10. String Comparison
+
+    s1 == s2
+    Check if two strings are equal.
+
+    s1 != s2
+    Check if two strings are not equal.
+
+    s1 < s2
+    Check if s1 is lexicographically smaller than s2.
+
+    s1 > s2
+    Check if s1 is lexicographically greater than s2.
+
+11. Transforming String
+
+    transform(s.begin(), s.end(), s.begin(), ::toupper)
+    Convert the string to uppercase.
+
+    transform(s.begin(), s.end(), s.begin(), ::tolower)
+    Convert the string to lowercase.
+
+12. Reversing a String
+
+    reverse(s.begin(), s.end())
+    Reverse the string.
+
+13. Sorting a String
+
+    sort(s.begin(), s.end())
+    Sort the string in ascending order.
+
+14. Checking if a String is Palindrome
+
+    Compare the string with its reverse:
+    cpp
+    Copy
+
+    string rev = s;
+    reverse(rev.begin(), rev.end());
+    if (s == rev) { /* Palindrome */ }
+
+15. Removing Whitespace
+
+    s.erase(remove(s.begin(), s.end(), ' '), s.end())
+    Remove all spaces from the string.
+
+16. Splitting a String
+
+    Use find() and substr() to split a string based on a delimiter:
+    cpp
+    Copy
+
+    size_t start = 0, end = s.find(delimiter);
+    while (end != string::npos) {
+        string token = s.substr(start, end - start);
+        start = end + 1;
+        end = s.find(delimiter, start);
+    }
+    string token = s.substr(start);
+
+17. Converting String to Number
+
+    stoi(s)
+    Convert string to integer.
+
+    stol(s)
+    Convert string to long.
+
+    stoll(s)
+    Convert string to long long.
+
+    stof(s)
+    Convert string to float.
+
+    stod(s)
+    Convert string to double.
+
+18. Converting Number to String
+
+    to_string(number)
+    Convert a number to a string.
+
+19. Checking Character Properties
+
+    isalpha(c)
+    Check if c is an alphabetic character.
+
+    isdigit(c)
+    Check if c is a digit.
+
+    islower(c)
+    Check if c is a lowercase letter.
+
+    isupper(c)
+    Check if c is an uppercase letter.
+
+    isspace(c)
+    Check if c is a whitespace character.
+
+20. Miscellaneous
+
+    s.clear()
+    Clear the string (make it empty).
+
+    s.resize(n)
+    Resize the string to n characters.
+
+    s.swap(s2)
+    Swap the contents of two strings.
+
+Example Usage
+cpp
+Copy
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    string s = "Hello, World!";
+    
+    // Length
+    cout << "Length: " << s.length() << endl;
+    
+    // Substring
+    cout << "Substring: " << s.substr(7, 5) << endl;
+    
+    // Find
+    size_t pos = s.find("World");
+    if (pos != string::npos) {
+        cout << "\"World\" found at position: " << pos << endl;
+    }
+    
+    // Replace
+    s.replace(7, 5, "CP");
+    cout << "After replace: " << s << endl;
+    
+    // Transform to uppercase
+    transform(s.begin(), s.end(), s.begin(), ::toupper);
+    cout << "Uppercase: " << s << endl;
+    
+    // Reverse
+    reverse(s.begin(), s.end());
+    cout << "Reversed: " << s << endl;
+    
+    return 0;
+}
+
+Output
+Copy
+
+Length: 13
+Substring: World
+"World" found at position: 7
+After replace: Hello, CP!
+Uppercase: HELLO, CP!
+Reversed: !PC ,OLLEH
