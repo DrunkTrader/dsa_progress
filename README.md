@@ -14,6 +14,7 @@ Welcome to my journey through Data Structures and Algorithms (DSA)! This reposit
     - Quick Sort
 - Vectors
 - Multiple Recursion
+- Pointers
 ```
 
 Happy Coding!
