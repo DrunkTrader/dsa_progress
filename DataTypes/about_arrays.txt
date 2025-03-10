@@ -3,231 +3,170 @@
     Definition: A collection of elements of the same data type stored in contiguous memory.
 
     Declaration:
-    cpp
-    Copy
 
     int arr[5]; // Static array of size 5
     vector<int> arr; // Dynamic array (vector)
 
     Initialization:
-    cpp
-    Copy
 
     int arr[5] = {1, 2, 3, 4, 5}; // Static array
     vector<int> arr = {10, 20, 30}; // Dynamic array
 
 2. Essential Operations
-a) Accessing Elements
+    a) Accessing Elements
 
-    Use [] or .at():
-    cpp
-    Copy
+        Use [] or .at():
+            int x = arr[0]; // First element
+            int y = arr.at(1); // Second element
 
-    int x = arr[0]; // First element
-    int y = arr.at(1); // Second element
+    b) Modifying Elements
 
-b) Modifying Elements
+        Assign new values:
+            arr[2] = 100; // Modify third element
 
-    Assign new values:
-    cpp
-    Copy
+    c) Array Size
 
-    arr[2] = 100; // Modify third element
+        Static array:
+            int size = sizeof(arr) / sizeof(arr[0]); // Size of static array
 
-c) Array Size
+        Dynamic array (vector):
+            int size = arr.size(); // Size of dynamic array
 
-    Static array:
-    cpp
-    Copy
+    d) Sorting
 
-    int size = sizeof(arr) / sizeof(arr[0]); // Size of static array
+        Use sort():
+            sort(arr, arr + 5); // Sort static array
+            sort(arr.begin(), arr.end()); // Sort dynamic array
 
-    Dynamic array (vector):
-    cpp
-    Copy
+    e) Reversing
 
-    int size = arr.size(); // Size of dynamic array
+        Use reverse():
+            reverse(arr, arr + 5); // Reverse static array
+            reverse(arr.begin(), arr.end()); // Reverse dynamic array
 
-d) Sorting
+    f) Searching
 
-    Use sort():
-    cpp
-    Copy
+        Use binary_search() (for sorted arrays):
+            bool found = binary_search(arr, arr + 5, key); // Static array
+            bool found = binary_search(arr.begin(), arr.end(), key); // Dynamic array
 
-    sort(arr, arr + 5); // Sort static array
-    sort(arr.begin(), arr.end()); // Sort dynamic array
+    g) Finding Min/Max
 
-e) Reversing
+        Use min_element() and max_element():
+            int min = *min_element(arr, arr + 5); // Static array
+            int max = *max_element(arr.begin(), arr.end()); // Dynamic array
 
-    Use reverse():
-    cpp
-    Copy
+    h) Sum of Elements
 
-    reverse(arr, arr + 5); // Reverse static array
-    reverse(arr.begin(), arr.end()); // Reverse dynamic array
+        Use a loop:
+            int sum = 0;
+            for (int x : arr) sum += x;
 
-f) Searching
+    i) Dynamic Array Operations (Vector)
 
-    Use binary_search() (for sorted arrays):
-    cpp
-    Copy
+        Add/Remove elements:
+            arr.push_back(100); // Add to end
+            arr.pop_back(); // Remove from end
 
-    bool found = binary_search(arr, arr + 5, key); // Static array
-    bool found = binary_search(arr.begin(), arr.end(), key); // Dynamic array
+        Insert/Erase elements:
+        
+            arr.insert(arr.begin() + 2, 50); // Insert at index 2
+            arr.erase(arr.begin() + 3); // Remove element at index 3
 
-g) Finding Min/Max
+    j) 2D Arrays
 
-    Use min_element() and max_element():
-    cpp
-    Copy
+        Static 2D array:
+            int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
 
-    int min = *min_element(arr, arr + 5); // Static array
-    int max = *max_element(arr.begin(), arr.end()); // Dynamic array
+        Dynamic 2D array (vector of vectors):
+            vector<vector<int>> arr = {{10, 20}, {30, 40}};
 
-h) Sum of Elements
+    3. Useful Methods for Competitive Programming
+    a) Sorting with Custom Comparator
 
-    Use a loop:
-    cpp
-    Copy
+        Sort in descending order  
+            sort(arr, arr + 5, greater<int>()); // Static array
+            sort(arr.begin(), arr.end(), greater<int>()); // Dynamic array
 
-    int sum = 0;
-    for (int x : arr) sum += x;
+    b) Unique Elements
 
-i) Dynamic Array Operations (Vector)
+        Remove duplicates (requires sorted array):
+            auto last = unique(arr, arr + 5); // Static array
+            arr.erase(unique(arr.begin(), arr.end()), arr.end()); // Dynamic array
 
-    Add/Remove elements:
-    cpp
-    Copy
+    c) Prefix Sum
 
-    arr.push_back(100); // Add to end
-    arr.pop_back(); // Remove from end
+        Calculate prefix sum:
+        for (int i = 1; i < 5; i++) 
+            arr[i] += arr[i - 1];
 
-    Insert/Erase elements:
-    cpp
-    Copy
+    d) Frequency Count
 
-    arr.insert(arr.begin() + 2, 50); // Insert at index 2
-    arr.erase(arr.begin() + 3); // Remove element at index 3
+        Use a map or array:
+            map<int, int> freq;
+            for (int x : arr) freq[x]++;
 
-j) 2D Arrays
+    e) Sliding Window
 
-    Static 2D array:
-    cpp
-    Copy
+        Fixed-size window:
+            int windowSum = 0;
+            for (int i = 0; i < k; i++) windowSum += arr[i];
+            for (int i = k; i < n; i++) {
+                windowSum += arr[i] - arr[i - k];
+            }
 
-    int arr[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    f) Binary Search on Answer
 
-    Dynamic 2D array (vector of vectors):
-    cpp
-    Copy
-
-    vector<vector<int>> arr = {{10, 20}, {30, 40}};
-
-3. Useful Methods for Competitive Programming
-a) Sorting with Custom Comparator
-
-    Sort in descending order:
-    cpp
-    Copy
-
-    sort(arr, arr + 5, greater<int>()); // Static array
-    sort(arr.begin(), arr.end(), greater<int>()); // Dynamic array
-
-b) Unique Elements
-
-    Remove duplicates (requires sorted array):
-    cpp
-    Copy
-
-    auto last = unique(arr, arr + 5); // Static array
-    arr.erase(unique(arr.begin(), arr.end()), arr.end()); // Dynamic array
-
-c) Prefix Sum
-
-    Calculate prefix sum:
-    cpp
-    Copy
-
-    for (int i = 1; i < 5; i++) arr[i] += arr[i - 1];
-
-d) Frequency Count
-
-    Use a map or array:
-    cpp
-    Copy
-
-    map<int, int> freq;
-    for (int x : arr) freq[x]++;
-
-e) Sliding Window
-
-    Fixed-size window:
-    cpp
-    Copy
-
-    int windowSum = 0;
-    for (int i = 0; i < k; i++) windowSum += arr[i];
-    for (int i = k; i < n; i++) {
-        windowSum += arr[i] - arr[i - k];
-    }
-
-f) Binary Search on Answer
-
-    For problems like "find the minimum/maximum value satisfying a condition":
-    cpp
-    Copy
-
-    int low = 0, high = 1e9, ans = -1;
-    while (low <= high) {
-        int mid = (low + high) / 2;
-        if (isValid(mid)) {
-            ans = mid;
-            high = mid - 1;
-        } else {
-            low = mid + 1;
-        }
-    }
+        For problems like "find the minimum/maximum value satisfying a condition":
+            int low = 0, high = 1e9, ans = -1;
+            while (low <= high) {
+                int mid = (low + high) / 2;
+                if (isValid(mid)) {
+                    ans = mid;
+                    high = mid - 1;
+                } else {
+                    low = mid + 1;
+                }
+            }
 
 4. Example Code
-cpp
-Copy
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-using namespace std;
+    #include <iostream>
+    #include <vector>
+    #include <algorithm>
+    using namespace std;
 
-int main() {
-    // Static array
-    int arr[5] = {5, 3, 1, 4, 2};
-    sort(arr, arr + 5);
-    cout << "Sorted Static Array: ";
-    for (int x : arr) cout << x << " "; // Output: 1 2 3 4 5
-    cout << endl;
-
-    // Dynamic array (vector)
-    vector<int> vec = {10, 20, 30};
-    vec.push_back(40);
-    cout << "Dynamic Array: ";
-    for (int x : vec) cout << x << " "; // Output: 10 20 30 40
-    cout << endl;
-
-    // 2D array
-    vector<vector<int>> arr2D = {{1, 2}, {3, 4}};
-    cout << "2D Array: " << endl;
-    for (auto row : arr2D) {
-        for (int x : row) cout << x << " "; // Output: 1 2 3 4
+    int main() {
+        // Static array
+        int arr[5] = {5, 3, 1, 4, 2};
+        sort(arr, arr + 5);
+        cout << "Sorted Static Array: ";
+        for (int x : arr) cout << x << " "; // Output: 1 2 3 4 5
         cout << endl;
+
+        // Dynamic array (vector)
+        vector<int> vec = {10, 20, 30};
+        vec.push_back(40);
+        cout << "Dynamic Array: ";
+        for (int x : vec) cout << x << " "; // Output: 10 20 30 40
+        cout << endl;
+
+        // 2D array
+        vector<vector<int>> arr2D = {{1, 2}, {3, 4}};
+        cout << "2D Array: " << endl;
+        for (auto row : arr2D) {
+            for (int x : row) cout << x << " "; // Output: 1 2 3 4
+            cout << endl;
+        }
+
+        return 0;
     }
 
-    return 0;
-}
+    Output
 
-Output
-Copy
 
-Sorted Static Array: 1 2 3 4 5 
-Dynamic Array: 10 20 30 40 
-2D Array: 
-1 2 
-3 4 
+    Sorted Static Array: 1 2 3 4 5 
+    Dynamic Array: 10 20 30 40 
+    2D Array: 
+    1 2 
+    3 4 
