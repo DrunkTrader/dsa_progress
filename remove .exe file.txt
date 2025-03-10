@@ -1,12 +1,33 @@
-For my System :
+METHOD 1: Using Command Prompt
+
+    - Open Command Prompt
+    - Type the following command and press Enter:
+        For my System :
+            del /S /Q "D:\DSA\*.exe"
+
+
+        --> Syntax: del /S /Q "D:\path\to\folder\*.exe"
+
+    - /S: Delete files from all subfolders
+    - /Q: Quiet mode, do not ask if ok to delete on global wildcard
+    - "C:\path\to\folder\*.exe": Delete all files with .exe extension in the folder and all subfolders
+
+METHOD 2 : Create a .bat file
+
+    - Open Notepad
+    - Copy and paste the following command:
+
+@echo off
+:: Deletes all .exe files in D:\DSA and its subdirectories
+echo Deleting all .exe files in D:\DSA...
 del /S /Q "D:\DSA\*.exe"
 
+:: Confirmation message
+echo Deletion complete.
+pause
 
-Syntax: del /S /Q "D:\path\to\folder\*.exe"
-
-- /S: Delete files from all subfolders
-- /Q: Quiet mode, do not ask if ok to delete on global wildcard
-- "C:\path\to\folder\*.exe": Delete all files with .exe extension in the folder and all subfolders
+    - Save the file with a .bat extension (e.g., delete_exe_files.bat)
+    - Double-click the .bat file to run it
 
 
 !!! Thank You !!!
