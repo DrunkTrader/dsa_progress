@@ -12,6 +12,7 @@
     ],
     "description": "Creates iostream header file and main function."
   },
+
   "Cpp algorithm Template": {
     "prefix": "al",
     "body": [
@@ -40,6 +41,7 @@
   ],
   "description": "Creates iostream, vector header file and main function."
   },
+
   "Cpp competitive Template": {
     "prefix": "cpp",
     "body": [
@@ -53,6 +55,7 @@
     ],
     "description": "Creates iostream header file and main function."
   },
+
   "Cpp Void Function Template": {
     "prefix": "voidtemp",
     "body": [
@@ -69,22 +72,32 @@
     ],
     "description": "Creates void function and main function."
   },
+
   "Cpp Void with Bits Function Template": {
     "prefix": "voidcpp",
     "body": [
+      "/*",
+      "  author: drunktrader aka Neeraj Kumar",
+      "  created: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND",
+      "*/",
+      "",
       "#include<bits/stdc++.h>",
       "using namespace std;",
       "",
-    "void $1(){",
-    "    $2",
-    "}",
+      "void $1(){",
+      "    $2",
+      "}",
+      "",
       "int main(){",
+      "    ios::sync_with_stdio(false); cin.tie(0);   // fast I/O",
+      "    ",
       "    $0",
       "    return 0;",
       "}"
     ],
     "description": "Creates void function with competitive header and main function."
   },
+
   "Cpp For i Loop Template": {
 	"prefix": "fori",
 	"body": [
@@ -94,6 +107,7 @@
 	],
 	"description": "Creates a for loop."
   },
+
   "Cpp For j Loop Template": {
 	"prefix": "forj",
 	"body": [
@@ -103,6 +117,7 @@
 	],
 	"description": "Creates a for loop."
   },
+
   "Cpp For cout Template": {
 	"prefix": "cout",
 	"body": [
@@ -110,6 +125,7 @@
 	],
 	"description": "Creates a cout statement."
   },
+
   "Cpp For cin Template": {
 	"prefix": "cin",
 	"body": [
@@ -117,6 +133,7 @@
 	],
 	"description": "Creates a cin statement."
   },
+
   "Cpp For j in i Loop Template": {
 	"prefix": "forj_in_i",
 	"body": [
@@ -126,4 +143,5 @@
   ],
   "description": "Creates a nested j loop in i statement."
   }
+  
 }
