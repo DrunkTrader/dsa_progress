@@ -8,19 +8,17 @@ using namespace std;
 
 void rotateby1(vector<int>& arr){
     int n = arr.size();
-    int lastElement = arr.back();
-    vector<int> tempArr;
-    tempArr.push_back(lastElement);
-
-    for(int i = 0; i < n-1; i++){
-        tempArr.push_back(arr[i]);
+    vector<int> tempArr(n);
+    
+    for(int i = 1; i < n; i++){
+        tempArr[i - 1] = arr[i];
     }
+    tempArr[n - 1] = arr[0];
     
     cout << "Rotated Array" << endl;
     for(int i = 0; i < n; i++){
         cout << tempArr[i] << " ";
     }
-    
 }
 
 int main(){
