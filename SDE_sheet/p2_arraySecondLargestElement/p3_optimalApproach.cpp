@@ -18,8 +18,8 @@ int secondSmallest(int arr[], int n){
     return second_smallest;
 }
 
-int secondLargest(vector<int> &arr){}{
-    int n = sizeof(arr)/sizeof(arr[0]);
+int secondLargest(vector<int> &arr){
+    int n = arr.size();
     int largest_number = INT_MIN;
     int second_largest = INT_MIN;
 
@@ -45,8 +45,11 @@ int secondLargest(vector<int> &arr){}{
 int main(){
     int arr1[] = {12, 35, 1, 10, 34, 1};
 
-    cout << "second smallest : " << secondSmallest(arr1) << endl;
-    cout << "second largest : " << secondLargest(arr1) << endl;
+    int n = sizeof(arr1)/sizeof(arr1[0]);
+    vector<int> vec(arr1, arr1 + n);
+
+    cout << "second smallest : " << secondSmallest(arr1, n) << endl;
+    cout << "second largest : " << secondLargest(vec) << endl;
     return 0;
 }
 

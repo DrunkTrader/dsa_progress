@@ -32,11 +32,11 @@ void leftRotateByD(vector<int>& arr, int d){
         arr[ n-d + i] = tempArr[i];
     }
     //print the array
-    cout << "Array after left rotation by " << d << " places : " << endl;
+    cout << "Array after left rotation by " << d << " places : ";
     for(int i = 0; i < n; i++){
         cout << arr[i] << " ";
     }
-
+    cout << endl;
 }
 
 int main(){
@@ -44,7 +44,7 @@ int main(){
     
     vector<int> arr1 = {1,2,3,4,5,6,7};
 
-    cout << "Original Array :" << endl;
+    cout << "Original Array : " ;
     for(size_t i = 0; i < arr1.size(); i++){
         cout << arr1[i] << " ";
     }

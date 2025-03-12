@@ -1,2 +1,3 @@
 tempCode.cpp
 *.exe
+.vscode/tasks.json
