@@ -6,7 +6,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void leftRotateByD(vector<int> arr, int d){
+void leftRotateByD(vector<int>& arr, int d){
+
     int n = arr.size();
 
     /*step 1 : compute the effective rotation
@@ -15,6 +16,9 @@ void leftRotateByD(vector<int> arr, int d){
     step 4 : push the elements in the temporary array in the main array*/
 
     d = d % n;      //compute the effective rotation
+    if(n == 0 || n == 1) return;  // if n is zero or one then return the array as it is
+    if(d == 0) return;  // if d is zero then return the array as it is
+
     vector<int> tempArr(d);
     for(int i = 0; i < d; i++){
         tempArr[i] = arr[i];
@@ -41,7 +45,7 @@ int main(){
     vector<int> arr1 = {1,2,3,4,5,6,7};
 
     cout << "Original Array :" << endl;
-    for(int i = 0; i < arr1.size(); i++){
+    for(size_t i = 0; i < arr1.size(); i++){
         cout << arr1[i] << " ";
     }
     cout << endl;
