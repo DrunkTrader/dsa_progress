@@ -1,6 +1,14 @@
 /*
-  author: drunktrader aka Neeraj Kumar
-  created: 2025-03-12 17:04:55
+    author: drunktrader aka Neeraj Kumar
+    created: 2025-03-12 17:04:55
+
+step 1 : compute the effective rotation
+step 2 : create a temporary array and store the first D elements in the temporary array
+step 3 : left push the elements by d places in the main array
+step 4 : push the elements in the temporary array in the main array
+
+Time complexity : O(d) + O(n-d) + O(d) = O(n+d)
+Space complexity : O(d)
 */
 
 #include<bits/stdc++.h>
@@ -10,10 +18,6 @@ void leftRotateByD(vector<int>& arr, int d){
 
     int n = arr.size();
 
-    /*step 1 : compute the effective rotation
-    step 2 : create a temporary array and store the first D elements in the temporary array
-    step 3 : left push the elements by d places in the main array
-    step 4 : push the elements in the temporary array in the main array*/
 
     d = d % n;      //compute the effective rotation
     if(n == 0 || n == 1) return;  // if n is zero or one then return the array as it is
