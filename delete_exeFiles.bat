@@ -4,5 +4,7 @@ echo Deleting all .exe files in D:\DSA...
 del /S /Q "D:\DSA\*.exe"
 
 :: Confirmation message
-echo Deletion complete.
+echo ===============================================
+echo              Deletion completed
+echo ===============================================
 pause
